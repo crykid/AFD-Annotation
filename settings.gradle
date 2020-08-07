@@ -1,0 +1,3 @@
+rootProject.name = "AFD-Annotation"
+include ':app'
+include 'Annotation_processor'
