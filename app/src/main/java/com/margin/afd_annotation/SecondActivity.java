@@ -32,12 +32,20 @@ public class SecondActivity extends AppCompatActivity {
     @AutoWired(ROLE_TYPE_BOSS)
     private boolean isBoy;
 
+    @AutoWired
+    private MainActivity.Computer computer;
 
-    public static void start(Activity activity, @RoleType String roleType, String name, boolean boy) {
+    @AutoWired
+    MainActivity.CellPhone cellPhone;
+
+
+    public static void start(Activity activity, @RoleType String roleType, String name, boolean boy, MainActivity.Computer computer, MainActivity.CellPhone phone) {
         activity.startActivity(new Intent(activity, SecondActivity.class)
                 .putExtra(INTENT_ROLE_TYPE, roleType)
                 .putExtra(INTENT_NAME, name)
                 .putExtra(INTENT_BOY, boy)
+                .putExtra("computer", computer)
+                .putExtra("cellPhone", phone)
         );
     }
 
@@ -47,8 +55,11 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         InjectUtils.inject(this);
+        InjectUtils.autoWired(this);
 
-        Log.d(TAG, "onCreate: position = " + position + ",name = " + name + " , isBoy =" + isBoy);
+        Log.d(TAG, "onCreate: position = " + position + ",name = " + name + " , isBoy =" + isBoy+ "\n"
+                + " Serializable : computer = " + computer.system
+                + " Parcelable : phone = " + cellPhone.system);
 
     }
 
