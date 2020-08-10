@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-@AFDEventType(listenerType = View.OnClickListener.class,listenerSetter = "setOnClickListener")
-public @interface AFDOnClick {
+@AFDEventType(listenerType = View.OnLongClickListener.class, listenerSetter = "setOnLongClickListener")
+public @interface AFDOnLongClick {
     @IdRes int[] value();
 }

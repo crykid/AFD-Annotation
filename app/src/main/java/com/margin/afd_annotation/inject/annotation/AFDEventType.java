@@ -1,9 +1,5 @@
 package com.margin.afd_annotation.inject.annotation;
 
-import android.view.View;
-
-import androidx.annotation.IdRes;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -11,12 +7,14 @@ import java.lang.annotation.Target;
 
 /**
  * Created by : mr.lu
- * Created at : 2020/8/10 at 10:25
+ * Created at : 2020/8/10 at 16:52
  * Description:
  */
-@Target(ElementType.METHOD)
+
+@Target(ElementType.ANNOTATION_TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@AFDEventType(listenerType = View.OnClickListener.class,listenerSetter = "setOnClickListener")
-public @interface AFDOnClick {
-    @IdRes int[] value();
+public @interface AFDEventType {
+    Class listenerType();
+
+    String listenerSetter();
 }
