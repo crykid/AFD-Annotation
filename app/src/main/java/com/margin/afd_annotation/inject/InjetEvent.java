@@ -6,7 +6,6 @@ import com.margin.afd_annotation.inject.annotation.AFDEventType;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
 
 /**
  * Created by : mr.lu
