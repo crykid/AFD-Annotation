@@ -1,16 +1,16 @@
 package com.margin.afd_annotation;
 
-import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.solver.widgets.Snapshot;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.margin.afd_annotation.annotations.RoleType;
-import com.margin.afd_annotation.inject.AutoWired;
+import com.margin.afd_annotation.inject.annotation.AFDOnClick;
+import com.margin.afd_annotation.inject.annotation.AutoWired;
 import com.margin.afd_annotation.inject.InjectUtils;
 
 public class SecondActivity extends AppCompatActivity {
@@ -61,6 +61,11 @@ public class SecondActivity extends AppCompatActivity {
                 + " Serializable : computer = " + computer.system
                 + " Parcelable : phone = " + cellPhone.system);
 
+    }
+
+    @AFDOnClick({R.id.btn_second_btn1, R.id.btn_second_btn2})
+    public void onViewClick(View view) {
+        Log.d(TAG, "onViewClick: viewId = " + view.getId());
     }
 
 

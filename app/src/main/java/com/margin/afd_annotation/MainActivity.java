@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +13,8 @@ import com.google.gson.reflect.TypeToken;
 import com.margin.afd_annotation.deserialization.Apple;
 import com.margin.afd_annotation.deserialization.BaseResponse;
 import com.margin.afd_annotation.deserialization.TypeRefrence;
-import com.margin.afd_annotation.inject.Inject;
+import com.margin.afd_annotation.inject.annotation.AFDOnClick;
+import com.margin.afd_annotation.inject.annotation.Inject;
 import com.margin.afd_annotation.inject.InjectUtils;
 
 import java.io.Serializable;
@@ -75,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeString(system);
         }
+    }
+
+    @AFDOnClick({R.id.btn_main_afdonclick})
+    public void onViewClick(View view) {
+        Log.d(TAG, "onViewClick: view = " + view.getId());
     }
 
     private void serializable() {
